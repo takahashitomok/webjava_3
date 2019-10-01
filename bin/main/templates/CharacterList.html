@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+		<title>キャラクターセレクト</title>
+	</head>
+	<body>
+	連れていくキャラクターを選んでください。
+		<h1>キャラクターリスト</h1>
+		<form action="#" th:action="@{/characterlist}" th:object="${CharacterListForm}" method="post">
+
+			<table class="table-sm table-striped table-hover" >
+				<thead  class="thead-light">
+				<tr>
+					<th>キャラクターID</th>
+					<th>名前</th>
+					<th>攻撃力</th>
+					<th>削除</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="character, stat : ${characters}">
+					<td>
+						<span th:text="${character.characterId}"></span>
+						<input type="hidden" th:name="|characterList[${stat.index}].characterId|" th:value="${character.characterId}" />
+					</td>
+					<td>
+						<input type="text" th:name="|characterList[${stat.index}].characterName|" th:value="${character.characterName}" />
+					</td>
+					<td>
+						<input type="text" th:name="|characterList[${stat.index}].attackPoint|" th:value="${character.attackPoint}" />
+					</td>
+					<td>
+						<a href="" th:href="@{/deletecharacter(character_id=${character.characterId})}" >削除</a>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+
+			<input type="submit" value="更新" class="btn" />
+		</form>
+		<form action="#" th:action="@{/addcharacter}" method="post">
+
+			<table>
+				<tr>
+					<th>キャラクターID</th>
+					<th>名前</th>
+					<th>攻撃力</th>
+				</tr>
+				<tr>
+					<td>
+						<input type="text" name="characterId" />
+					</td>
+					<td>
+						<input type="text" name="characterName" />
+					</td>
+					<td>
+						<input type="text" name="attackPoint" />
+					</td>
+				</tr>
+			</table>
+
+			<input type="submit" value="登録" class="btn" />
+		</form>
+	</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>結果画面</title>
+</head>
+<body>
+	<th:object th:each="resul : ${result.resultList}">
+		<p th:text="${resul}"></p>
+	</th:object>
+	<h2 th:text="敵HP：+ ${enemy.hp}"></h2>
+	<th:object th:if="${enemy.hp}>0">
+		<form action="#" th:action="@{/command}" method="post">
+			<input type="submit" name="redirectCommand" value="再攻撃">
+		</form>
+	</th:object>
+</body>
+</html>

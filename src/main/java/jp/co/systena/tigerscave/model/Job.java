@@ -28,6 +28,5 @@ public abstract class Job {
 	  }
 
 	  public abstract String fight();
-	  public abstract String strongFight();
 	  public abstract String recovery();
 	}

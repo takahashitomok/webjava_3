@@ -17,10 +17,4 @@ public class Enemy {
 			hp = hp - 10;
 		}
 	}
-
-	public void strongDamage() {
-		if (hp > 0) {
-			hp = hp - 20;
-		}
-	}
 }

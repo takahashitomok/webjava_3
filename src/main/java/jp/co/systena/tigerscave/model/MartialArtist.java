@@ -22,14 +22,6 @@ public class MartialArtist extends Job {
 		return builder.toString();
 	}
 
-	public String strongFight() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(name);
-		builder.append("は拳で強攻撃した！　HP：-20");
-
-		return builder.toString();
-	}
-
 	public String recovery() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(name);

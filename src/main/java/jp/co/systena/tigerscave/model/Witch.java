@@ -23,14 +23,6 @@ public class Witch extends Job{
 		return builder.toString();
 	}
 
-	public String strongFight() {
-		StringBuilder builder = new StringBuilder();
-		builder.append(name);
-		builder.append("はまほうで強攻撃した！　HP：-20");
-
-		return builder.toString();
-	}
-
 	public String recovery() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(name);

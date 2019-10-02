@@ -18,24 +18,24 @@ import jp.co.systena.tigerscave.model.Party;
 public class Controller {
 
 	@Autowired
-	  HttpSession session;
+	HttpSession session;
 
-	  @RequestMapping(value = "/charactermake", method = RequestMethod.GET)
-	  public ModelAndView show(ModelAndView mav) {
-	    ListForm ListForm = new ListForm();
-	    Party party = (Party) session.getAttribute(Party.PARTY_SESSION_KEY);
-	    if (party == null) {
-	      party = new Party();
-	    }
+	@RequestMapping(value = "/charactermake", method = RequestMethod.GET)
+	public ModelAndView show(ModelAndView mav) {
+		ListForm ListForm = new ListForm();
+		Party party = (Party) session.getAttribute(Party.PARTY_SESSION_KEY);
+		if (party == null) {
+			party = new Party();
+		}
 
-	    party.checkDisplayContinued(ListForm);
+		party.checkDisplayContinued(ListForm);
 
-	    mav.addObject("character", ListForm);
+		mav.addObject("character", ListForm);
 
 
-	    mav.setViewName("CharacterMake");
+		mav.setViewName("CharacterMake");
 
-	    return mav;
-	  }
-
+		return mav;
 	}
+
+}

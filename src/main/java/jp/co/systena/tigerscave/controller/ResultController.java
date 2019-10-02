@@ -34,13 +34,8 @@ public class ResultController {
 			Job Job = (Job) member;
 			if (Job.getAction().equals(jp.co.systena.tigerscave.model.Job.FIGHT)) {
 				// たかかう選択
-				if (Math.random() > 0.8) {
-					resultForm.addResult(Job.strongFight());
-					enemy.strongDamage();
-				} else {
 					resultForm.addResult(Job.fight());
 					enemy.damage();
-				}
 			} else {
 				// かいふく選択
 				resultForm.addResult(Job.recovery());
